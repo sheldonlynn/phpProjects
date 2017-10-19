@@ -90,10 +90,11 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Contact Us!
+            {{$companyName}} is hiring for position {{$jobTitle}}
         </div>
 
         <div class="links">
+            <a href="/">Home</a>
             <a href="contact">Contact</a>
             <a href="about">About Us</a>
         </div>
