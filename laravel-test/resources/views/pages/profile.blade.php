@@ -1,8 +1,9 @@
 @extends('pages.master')
 
-@section('title', 'Company Profile')
+@section('title')
+    {{$companyName}}
+@stop
 
 @section('content')
     Company Profile
-
 @stop

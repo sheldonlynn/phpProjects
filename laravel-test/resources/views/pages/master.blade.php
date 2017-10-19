@@ -97,9 +97,17 @@
             <a href="contact">Contact</a>
             <a href="about">About Us</a>
             <a href="profile">Profile</a>
+            <a href="/post/1">Our Job Postings</a>
         </div>
 
-        @yield('content')
+        <h2>
+            @yield('header')
+        </h2>
+
+        <div style="color:black;font-weight:800; margin:5%;">
+            @yield('content')
+        </div>
+
     </div>
 </div>
 </body>

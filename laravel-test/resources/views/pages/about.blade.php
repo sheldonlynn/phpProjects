@@ -4,5 +4,4 @@
 
 @section('content')
     <img src="/images/corgi.jpg" alt="corgi">
-
 @stop
