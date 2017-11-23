@@ -94,9 +94,9 @@
         </div>
 
         <div class="links">
-            <a href="contact">Contact</a>
-            <a href="about">About Us</a>
-            <a href="profile">Profile</a>
+            <a href="/contact">Contact</a>
+            <a href="/about">About Us</a>
+            <a href="/profile">Profile</a>
             <a href="/post/1">Our Job Postings</a>
         </div>
 
