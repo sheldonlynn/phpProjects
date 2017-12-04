@@ -1,8 +1,9 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-require_once('../simpletest/autorun.php');
+require_once('./simpletest/autorun.php');
 
 require_once('../classes/Arithmetic.php');
+
 class TestArithmetic extends UnitTestCase {
 
 	private $a;
@@ -37,8 +38,6 @@ class TestArithmetic extends UnitTestCase {
 	
 	public function testAddExceptions()
 	{
-		
-		
 		try{
 			$sum = $this->a->add("hello", 6);
 			$this->fail();

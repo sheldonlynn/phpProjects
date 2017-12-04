@@ -1,8 +1,0 @@
-Contents of test.txt:
-Sheldon
-
-is
-
-cool!
-
-Contnts of test.zip:

@@ -45,10 +45,10 @@ class TestDate extends UnitTestCase {
 	}
 	public function testInvalidYear(){
 	try {
-	$name = new Date(2014, 12, 31);
+	$name = new Date(2018, 12, 31);
 	$this->fail("InvalidDateException was expected... ");
 	} catch (InvalidDateException $e) {
-	$this->assertEqual('2014 invalid year; must be less than current (2013)',
+	$this->assertEqual('2018 invalid year; must be less than current (2017)',
 	$e->getMessage());
 	$this->pass();
 	} catch(Exception $e){

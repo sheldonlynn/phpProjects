@@ -72,7 +72,21 @@ class Name{
 		return $this->middle;
 	}			
 	
+    public function getShortInitials() {
+        if($this->middle == "") {
+            return strtoupper($this->first[0]) . strtoupper($this->last[0]);
+        } else {
+            return strtoupper($this->first[0]) . strtoupper($this->middle[0]) . strtoupper($this->last[0]);
+        }
+    }
 
+    public function getLongInitials() {
+        if($this->middle == "") {
+            return strtoupper($this->first[0]) . '.' . strtoupper($this->last[0]) . '.';
+        } else {
+            return strtoupper($this->first[0]) . '.' . strtoupper($this->middle[0]) . '.' . strtoupper($this->last[0]) . '.';
+        }
+    }
 
 	public function getFullName(){
 		if($this->middle != ""){
@@ -106,7 +120,42 @@ class Name{
 			
 		}
 	}
-	
-	
-	
+
+	public function getFirstNamePretty() {
+        return ucfirst(strtolower($this->first));
+    }
+
+    public function getLastNamePretty() {
+        return ucfirst(strtolower($this->last));
+    }
+
+
+    public function getMiddleNamePretty() {
+        return ucfirst(strtolower($this->middle));
+    }
+
+    public function setFirstName($f) {
+        if (!isset($f))  {
+            throw new InvalidNameFormatException('first name must not be null');
+        }
+
+        $this->first = $f;
+    }
+
+    public function setMiddleName($m) {
+        $this->middle = $m;
+    }
+
+    public function setLastName($l) {
+        if (!isset($l))  {
+            throw new InvalidNameFormatException('last name must not be null');
+        }
+        $this->last = $l;
+    }
+
+    public function setFullName($f, $l, $m = '') {
+        $this->first = $f;
+        $this->middle = $m;
+        $this->last = $l;
+    }
 }

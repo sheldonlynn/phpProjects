@@ -13,11 +13,11 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-//        Schema::create('countries', function($table) {
-//           $table->increments('id');
-//           $table->string('code');
-//           $table->string('name');
-//        });
+        Schema::create('countries', function($table) {
+           $table->increments('id');
+           $table->string('code');
+           $table->string('name');
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        //Schema::drop('countries');
+        Schema::drop('countries');
     }
 }

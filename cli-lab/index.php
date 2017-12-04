@@ -64,7 +64,7 @@ $email = getEmail();
 
 writeFileContents(STDOUT, $textFile);
 listZipContents(STDOUT, $zipFile);
-exec ("mspaint " . $jpgFile);
+exec ("open -a preview " . $jpgFile);
 
 
 $newTextFileName = getTextFileName();
