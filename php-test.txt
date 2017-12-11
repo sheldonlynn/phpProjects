@@ -1,0 +1,239 @@
+
+Name: ____________________________		Score: ______ / 56
+1.	(5 marks) Write all of the PHP code that does the following:
+-	Creates an image that is 400 pixels wide and 500 pixels tall
+-	Writes “hello” on the image
+-	Saves the image as “x.jpg”.
+
+	$im = imagecreatetruecolor(500, 500);
+	$black = imagecolorallocate($im, 0, 0, 0);
+	$white = imagecolorallocate($im, 255, 255, 255);
+	imagefill($im, 0, 0,  $white);
+	imagestring($im, 3, 150, 150, “hello”, $black);
+	imagejpeg($im, ‘x.jpg’);
+
+2.	(4 marks) (a) What is “object detection” in JavaScript? 
+Using if() to determine whether javascript objects exist 
+
+(b) Why use it? 
+	To detect different browsers compatability
+
+(c) What’s the alternative to using it? 
+	Using the user agent string to detect browser/operating system
+
+(d) Give a code example of object detection.
+	if (document.images) {
+		//add mouseover to images
+	}
+
+
+3.	(5 marks) Write the jQuery code to do the following in the <head> section: when the document is ready, add the following to every image:
+-	Set its CSS property of “red solid 2px” border
+-	When it is clicked, the image has its src attribute set to “dog.jpg”
+	function changeSrc(obj) {
+		obj.src = "dog.jpg";
+	}
+
+	$(‘document’).ready(function() {
+		$('img').each(function() {
+			this.css("border", "red solid 2px");
+			this.onclick = changeSrc;
+		})
+	});
+
+4.	(5 marks) Write the php code that connects to a database called “cars” on localhost with user name “user” and password “pass”. Select all the fields of all the rows and display them in the exact format of “make is Lamborghini; model is aventador; year is 2017” and “make is dodge; model is caravan; year is 2010” etc….
+
+	$conn = mysqli_connect('127.0.0.1', 'user', 'pass') or die();
+
+	mysqli_select_db($conn, 'cars') or die();
+
+	$result = mysqli_query($conn, "
+		SELECT * FROM cars
+	") or die();
+
+	while($record = mysqli_fetch_assoc($fesult)) {
+		echo "make is " . $record['make'] . "; model is " . $record['model'] . "; year is " . $record['year'];
+	}
+
+
+5.	What is a Laravel migration? (1 mark) 
+
+	Helps with setup and teardown of database tables, including seeding data.
+
+
+(b) Give a pseudocde example of a very, very simple one. (2 marks)
+	
+	class CreateUsersTable extends Migration
+	{
+		public function up()
+		{
+			Schema::create('users', function(Blueprint $table)) {
+				$table->increments('id');
+				$table->string('name');
+			}
+		}
+
+		public function down()
+		{
+			Schema::drop('users');
+		}
+	}
+
+
+
+6.	Show the routes.php script which uses a closure to return the string “test” whenever a GET request is made. (2 marks)
+	
+	Route::get('/test', function() {
+		return "test"
+	});
+
+7.	Show the routes.php script which loads a View called test.php whenever a GET request is made to “hello/world”. (2 marks)
+	
+	Route::view('hello/world', 'test');
+
+
+8.	Show the routes.php script which loads a View called test.php whenever a GET request is made to “hello/world”, but this time pass the string “bcit” as the value of a variable named $school. (2 marks)
+
+	$school = "bcit"
+
+	Route::view('hello/world', 'test.php', ['school' => 'bcit']);
+
+
+9.	Assume that a routes.php script has been written which loads a View called test.php whenever a GET request is made to “hello/world”, and which passes a string in a variable named $school. Write the simplest possible view file which displays the $school value. (2 marks)
+
+	<html>
+		<body>
+			{{ $school }}
+		</body>
+	</html>
+
+ 
+10.	Assume that a routes.php script has been written which loads a View called test.blade.php whenever a GET request is made to “hello/world”, and which passes a string in a variable named $school. Write the simplest possible blade view file which displays the $school value using blade syntax. (2 marks)
+
+	@extends('pages.master')
+
+	@section('content')
+		<p> {{ $school }}</p>
+	@stop
+
+
+11.	Show the routes.php script which executes a method named “test()” inside a controller called TestController for any GET request to “testing”. 
+(2 marks)
+
+	Route::get('testing', 'TestController@test');
+
+12.	Show the routes.php script which finds the first Book object for any GET request to “book”. (2 marks)
+	Route::get('book', )
+
+
+
+
+
+
+13.	What do “fillable” and “guarded” mean? (1 mark)
+
+	fillable means it's mass assignable. Guarded means cannot be directly changed.
+
+
+
+
+
+14.	In blade, what does the function dd() do? (1 mark)
+	var_dump() and then die()
+ 
+15.	Consider the following “master page” called “test” in the “layouts” folder: 
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    @yield('x')
+</head>
+<body>
+</body>
+</html>
+
+(a) What is the purpose of a master page? (1 mark)
+	it is a layout that all others can extend and fill in with custom data
+
+(b) What does the @yield mean/do? (1 mark)
+	@yield means a section that can be overridden by children
+
+
+16.	Show an example which uses the “master page” in the previous question. (2 marks)
+
+	@extends('test')
+
+	@section('x')
+		<script src="hello.js" />
+
+
+
+17.	What does the following code do? (2 marks)
+Route::resource('z', 'Z');
+	calls the resource Z which returns data from the model
+
+ 
+18.	Write the JavaScript code that, after the window finishes loading, moves an image one pixel to the right every time it is clicked. Write all the HTML and JavaScript. (5 marks)
+	<html>
+	<head>
+	<style>
+	</style>
+	<script>
+		function move() {
+			img.style.left = parseInt(img.style.left) + 50 + "px"
+		}
+
+		onload = function() {
+			img = document.getElementById("square");
+			img.onclick = move;
+		}
+	</script>
+	</head>
+	<body>
+		<img src="black.jpg" width="100" height="100" id="square" style="position: absolute; left: 1px">
+	</body>
+	</html>
+
+ 
+19.	Write some JavaScript code in a <script> section that does the following; do not use jQuery and do not use HTML directly (only JavaScript): (5 marks)
+
+After the window finishes loading,					
+Create a paragraph element.						
+Then create a text node with “hello” as its text.			
+Append the text node to the paragraph. 				
+Append the paragraph to the document body. 			
+
+Then, 
+Create an image.								
+Whose src is “dog.jpg” 							
+And which changes to “cat.jpg” when clicked. 			
+
+Then,
+Ensure that any paragraph changes color to red			
+When it is clicked.		 
+
+<script>
+	var paragraph = document.createElement('p');
+	var textNode = document.createTextNode('hello');
+	paragraph.appendChild(textNode);
+	document.body.appendChild(paragraph);
+
+	var img = document.createElement('img');
+	img.src = "Black.jpg"
+	img.onclick = function() {
+		this.src = "image2.jpg";
+	}
+
+	document.body.appendChild(img);
+
+	var paras = document.getElementsByTagName('p');
+	for (i = 0; i < paras.length; i++) {
+		paras[i].onclick = function() {
+			this.style.color = "red";
+		}
+	}
+</script>					
+
+
+ 
+20.	What is test-driven development? (1 mark) What are its benefits? (1 mark)
