@@ -45,10 +45,12 @@ class PostingsController extends Controller
      */
     public function show($id)
     {
+        //$id="<script>alert('hack hack hack')</script>";
         return view('postings.posting')->with([
-            'companyName' => 'Tesla',
-            'jobTitle' => 'CEO'
+            'companyName' => '7-Eleven',
+            'jobTitle' => 'Clerk'
         ]);
+        //return "show one job posting here: number " . $id;
     }
 
     /**

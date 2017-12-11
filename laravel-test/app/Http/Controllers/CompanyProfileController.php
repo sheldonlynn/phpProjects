@@ -13,7 +13,7 @@ class CompanyProfileController extends Controller
      */
     public function index()
     {
-        $companyName = 'Tesla!';
+        $companyName = '7-Eleven!';
         return view('pages.profile', compact('companyName'));
     }
 

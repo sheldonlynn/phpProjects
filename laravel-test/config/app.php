@@ -40,6 +40,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', true),
+    //'debug' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +168,9 @@ return [
         /*
          * Package Service Providers...
          */
+        Collective\Html\HtmlServiceProvider::class,
         Igaster\LaravelCities\GeoServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,7 +180,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-//        Webpatser\Countries\CountriesServiceProvider::class
+        Webpatser\Countries\CountriesServiceProvider::class
 
     ],
 
@@ -203,14 +206,21 @@ return [
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
+        'Countries' => Webpatser\Countries\CountriesFacade::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
-//        'Countries' => Webpatser\Countries\CountriesFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
+
+        'Form' => 'Collective\Html\FormFacade',
+
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+
+        'Html' => 'Collective\Html\HtmlFacade',
+
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,

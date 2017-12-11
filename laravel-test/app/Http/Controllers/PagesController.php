@@ -1,23 +1,29 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sheldonlynn
- * Date: 2017-10-19
- * Time: 9:52 AM
- */
 
 namespace App\Http\Controllers;
 
-use app\Http\Controllers\Controller;
 
-
-class PagesController
+class PagesController extends Controller
 {
-    public function contact() {
-        return view("pages.contactus");
+    /**
+     * Display the view showing the contact us data
+     * @param none
+     * @return Response
+     */
+    protected function contact() {
+        return view('pages.contactus');
     }
 
+    /**
+     * Display the view showing the about us data
+     * @param none
+     * @return Response
+     */
     public function about() {
-        return view("pages.about");
+        return view('pages.aboutus');
+    }
+
+    public function profile() {
+        return view('pages.profile');
     }
 }

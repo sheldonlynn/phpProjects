@@ -18,11 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('linkedinurl')->unique();
+            $table->string('linkedinurl');
             $table->string('streetaddress');
             $table->string('city');
-            $table->integer('stateid');
-            $table->integer('countryid');
+            $table->string('state');
+            $table->string('countryid');
+            //$table->string('country');
             $table->string('postalzipcode');
             $table->string('workphone');
             $table->string('workphoneextension');
